@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="165" height="132" viewBox="0 0 165 132">
+    <defs>
+        <filter id="prefix__a" width="121.1%" height="176.5%" x="-10.5%" y="-28.4%" filterUnits="objectBoundingBox">
+            <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="4.5"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.110494974 0"/>
+        </filter>
+        <filter id="prefix__c" width="116.3%" height="160%" x="-8.2%" y="-22.5%" filterUnits="objectBoundingBox">
+            <feOffset dy="3" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="3.5"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.110494974 0"/>
+        </filter>
+        <path id="prefix__b" d="M0 3.594C0 1.61 1.613 0 3.597 0h139.806C145.389 0 147 1.613 147 3.594v33.312c0 1.985-1.613 3.594-3.597 3.594H3.597C1.611 40.5 0 38.887 0 36.906V3.594z"/>
+        <path id="prefix__d" d="M.1 48.056C.1 46.368 1.461 45 3.153 45h140.894c1.686 0 3.053 1.377 3.053 3.056v33.888c0 1.688-1.361 3.056-3.053 3.056H3.153C1.467 85 .1 83.623.1 81.944V48.056z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(9)">
+        <circle cx="73.7" cy="65.7" r="65.7" fill="#DCEEFF"/>
+        <g transform="translate(0 23)">
+            <use fill="#000" filter="url(#prefix__a)" xlink:href="#prefix__b"/>
+            <use fill="#FFF" xlink:href="#prefix__b"/>
+            <use fill="#000" filter="url(#prefix__c)" xlink:href="#prefix__d"/>
+            <use fill="#FFF" xlink:href="#prefix__d"/>
+            <g fill="#F1F1F1" transform="translate(10.1 58)">
+                <rect width="71.91" height="5.355" x=".9" rx="2.677"/>
+                <rect width="56.61" height="5.355" x=".9" y="9.18" rx="2.677"/>
+            </g>
+            <rect width="21.44" height="21.44" x="115.28" y="54.48" fill="#FFF" stroke="#D9D9D9" stroke-width=".56" rx="10.72"/>
+            <g transform="translate(114 9.2)">
+                <rect width="22.4" height="22.4" fill="#2998FF" rx="11.2"/>
+                <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" d="M7.7 11.104L10.584 14 15.4 9.1"/>
+            </g>
+            <rect width="91.91" height="5.355" x="11" y="13" fill="#2998FF" fill-opacity=".252" rx="2.677"/>
+            <rect width="76.61" height="5.355" x="11" y="22.18" fill="#2998FF" fill-opacity=".252" rx="2.677"/>
+        </g>
+    </g>
+</svg>

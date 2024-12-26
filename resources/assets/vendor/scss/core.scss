@@ -1,0 +1,1508 @@
+@import 'bootstrap';
+@import 'bootstrap-extended';
+@import 'components';
+@import 'colors';
+// @import 'calander-style'
+
+$primary:#696cff;
+$secondary:#5f61e6;
+$border:#d9d9d9;
+$hover:#f6f7f7;
+$white:#ffffff;
+$body:#646e78;
+$span: #8c9094;
+$black:#000000;
+$transition: all 0.2s ease-in-out;
+$shadow: 0 0.125rem 0.375rem 0 rgba(34, 48, 62, 0.08);
+// start design for calander 
+
+.calander_section {
+    background: $white;
+    box-shadow: $shadow;
+    padding: 18px;
+    border-radius: 0.375rem;
+    .calander_top{
+        display: flex;
+        justify-content: space-between;
+        .filter_area, .button_area{
+            display: flex;
+            gap: 10px;
+            button{
+                padding: 10px 16px;
+                border: 1px solid $border;
+                border-radius: 50px;
+                height: 100%;
+                font-weight: normal;
+                .datepick{
+                    padding: 0px 12px;
+                }
+                .past_month{
+                    padding-right: 5px;
+                }
+                .next_month{
+                    padding-left: 5px;
+                }
+                
+            }
+            .dr_two, .dr_four, .dr_eight{
+                .dropdown-toggle::after{
+                    display: none;
+                }
+            }
+            .dr_one button, .dr_two button, .dr_five, .dr_six button, .dr_seven button{
+                color: $primary;
+            }
+        }
+    }
+}
+.flatpickr-months .flatpickr-prev-month:hover svg, .flatpickr-months .flatpickr-next-month:hover svg{
+    fill: $primary;
+}
+.dropdown-menu{
+    min-width: 220px;
+    width: 100%;
+    border-radius: 8px;
+    li{
+        .titlesmall{
+            color: #8c9094;
+            padding: 10px 10px 10px 15px;
+            display: block;
+        }
+       .dropdown-item, .form-switch{
+            display: inline-flex;
+            align-items: center;
+            border-radius: 4px;
+            color: $body;
+            padding: 6px 14px;
+            margin:0px 5px 5px;
+            width: -webkit-fill-available;
+            gap: 10px;
+            .fa-check{
+                color: $primary;
+            }
+            .flexname{
+                flex: 1;
+            }
+            .btnjob{
+                padding: 0;
+            }
+            &.listview{
+                margin-top: 5px;
+            }
+       } 
+       .dropdown-divider{
+        margin: 2px 0;
+       }
+       .form-switch{
+            white-space: nowrap;
+            display: flex;
+            margin: 5px 5px 0;
+            justify-content: space-between;
+            &:hover{
+            background: $hover;
+            }
+            .form-check-input{
+                height: 24px;
+                width: 36px;
+            }
+       }
+       
+       &.drinside{
+            .dropdown-toggle{
+                color: $body;
+                padding: 6px 14px;
+                margin: 5px;
+                border-radius: 4px;
+                border: 0;
+                display: flex;
+                justify-content: space-between;
+                width: -webkit-fill-available;
+                &::after{
+                    display: none;
+                }
+                &:hover{
+                    transform:translateY(0px);
+                    background: $hover;
+                }
+            }
+            &:hover{
+                .dropend{
+                    display: block;
+                    left: 100%;
+                    bottom: 0;
+                }
+            }
+            .check{
+                color: #aaabad;
+            }
+       }
+    }
+    &.fit_content{
+        min-width: fit-content;
+    }
+}
+.main_box{
+    border: 1px solid $border;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: flex;
+    .date_items{
+        display: flex;
+        width: 100%;
+        .box_item{
+            flex: 1;
+            width: 150px;
+        }
+    }
+    .box_item{
+        display: inline-block;
+        min-height: 200px;
+        &.box_width{
+            max-width: 210px;
+        }
+        &:last-child{
+            .top_title, .body_item .flex_info{
+                border-right: 0px;
+            }
+        }
+        .top_title{
+            height: 64px;
+            padding: 12px 8px;
+            display:flex;
+            gap: 12px;
+            align-items: center;
+            border-right: 1px solid $border;
+            border-bottom: 1px solid $border;
+            .search_inside{
+                display: flex;
+                position: relative;
+                .form-control{
+                    padding-right: 20px;
+                }
+                .search_btn{
+                    position: absolute;
+                    right: 12px;
+                    top: 11px;
+                    padding: 0;
+                }
+            }
+        }
+        .body_item{
+            &:last-child{
+                .flex_info{
+                    border-bottom: 0;
+                }
+            }
+            &.infoheight{
+                .flex_info{
+                    padding: 10px 12px;
+                    height: 44px;
+                }
+            }
+            &.userheight{
+                height: 124px;
+                .flex_info{
+                    height: 100%;
+                    border-bottom: 1px solid $border;
+                    .userbtn{
+                        top: unset;
+                    }
+                }
+            }
+            .flex_info{
+                height: 65px;
+                display: flex;
+                padding: 12px 12px;
+                gap: 12px;
+                align-items: center;
+                border-right: 1px solid $border;
+                border-bottom: 1px solid $border;
+                position: relative;
+                &:hover{
+                    .userbtn{
+                        opacity: 1;
+                        transition: $transition;
+                    }
+                }
+                .userbtn{
+                    position: absolute;
+                    right: 0;
+                    top: 20px;
+                    opacity: 0;
+                }
+                i{
+                  display: inline-block;
+                }
+                p{
+                  margin-bottom: 0;
+                  line-height: 1;
+                  display: inline-block;
+                }
+                i.fa-magic{
+                    flex: 1;
+                    text-align: right;
+                }
+            }
+            p{
+                margin: 0;
+                display: inline-block;
+                line-height: 1;
+            }
+            .user_profile{
+                width: 35px;
+                height: 35px;
+                img{
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+            .dots{
+                flex: 1;
+                text-align: right;
+            }
+            .flex_info{
+                &:hover{
+                    .plus_info{
+                        opacity: 1;
+                        transition:$transition;
+                    }
+                }
+                &.iconbtn:hover{
+                    .mdoalbtn{
+                        opacity: 1;
+                        transition:$transition;
+                    }
+                }
+                &.iconbtn{
+                    justify-content: center;
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                    .mdoalbtn{
+                        opacity: 0;
+                    }
+                }
+                .mdoalbtn{
+                    color: $primary;
+                    text-align: center;
+                    padding: 2px;
+                    width: 25px;
+                    height: 25px;
+                    border: 1px solid $border;
+                    border-radius: 20px;
+                    display: inline-block;
+                    font-size: 14px;
+                }
+                .plus_info{
+                    display: flex;
+                    width: 100%;
+                    gap: 15px;
+                    justify-content: center;
+                    opacity: 0;
+                    .mdoalbtn{
+                        flex: unset;
+                    }
+                    .drinside{
+                        .dropend{
+                            .select_template{
+                                padding: 10px;
+                                .toptemplate{
+                                    display: flex;
+                                    justify-content: space-between;
+                                    margin-bottom: 8px;
+                                    align-items: center;
+                                    h5{
+                                        font-size: 16px;
+                                        margin-bottom: 0;
+                                    }
+                                    .addbtn{
+                                        color: $primary;
+                                        display: inline-block;
+                                        font-weight: 400;
+                                        font-size: 15px;
+                                        padding: 0;
+                                    }
+                                }
+                                .searchtemplate{
+                                    position: relative;
+                                    margin-bottom: 15px;
+                                    .form-control{
+                                        border-radius: 50px;
+                                    }
+                                    button.searchbtn{
+                                        position: absolute;
+                                        padding: 0;
+                                        font-size: 17px;
+                                        right: 14px;
+                                        top: 10px;
+                                    }
+                                }
+                                .temp_list{
+                                    max-height: 200px;
+                                    overflow: auto;
+                                    padding-right: 10px;
+                                    &::-webkit-scrollbar {
+                                    width: 8px;  /* Width of scrollbar */
+                                    }
+
+                                    &::-webkit-scrollbar-track {
+                                    background: #f1f1f1;  /* Track background */
+                                    }
+
+                                    &::-webkit-scrollbar-thumb {
+                                    background: $border;   /* Thumb color */
+                                    border-radius: 4px; /* Rounded corners */
+                                    }
+
+                                    &::-webkit-scrollbar-thumb:hover {
+                                    background: $span;  /* Thumb color on hover */
+                                    }
+                                    .item_temp{
+                                        display: block;
+                                        border: 2px solid $primary;
+                                        border-left: 5px solid $secondary;
+                                        border-radius: 8px;
+                                        padding: 10px 10px 10px 15px;
+                                        margin-bottom: 10px;
+                                        p{
+                                            display: block;
+                                            margin-bottom: 4px;
+                                        }
+                                        span{
+                                            font-size: 14px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .dropdown-toggle::after{
+                    display: none;
+                }
+            }
+            .boxtime{
+                padding: 5px;
+                flex-direction: column;
+                gap: 5px;
+                .timesitem:hover{
+                    .times{
+                        .btn{
+                            &.dropdown-toggle{
+                                opacity: 1;
+                                transition: $transition;
+                            }
+                        }
+                    }
+                }
+                .timesitem{
+                    padding: 8px;
+                    background: $primary;
+                    border-radius: 5px;
+                    position: relative;
+                    cursor: grab;
+                    &.bg_two{
+                        background: #42474c;
+                        .detailtime{
+                            .shapeslide{
+                                background-color: #42474c;
+                            }
+                        }
+                    }
+                    .times{
+                        display: flex;
+                        justify-content: space-between;
+                        padding-bottom: 5px;
+                        .btn{
+                            padding: 0px 5px;
+                            &.dropdown-toggle{
+                                opacity: 0;
+                            }
+                        }
+                        .titlesmall{
+                            color: $span;
+                        }
+                        .dropdown-item{
+                            .check{
+                                flex: 1;
+                                text-align: right;
+                            }
+                        }
+                    }
+                    span, .fa-ellipsis-v{
+                        color: $white;
+                        font-size: 12px;
+                        white-space: nowrap;
+                        overflow: hidden !important;
+                        text-overflow: ellipsis;
+                    }
+                    p{
+                        color: $white;
+                        font-size: 13px;
+                    }
+                    .detailtime{
+                        .timename{
+                            max-width: 122px;
+                            white-space: nowrap;
+                            overflow: hidden !important;
+                            text-overflow: ellipsis;
+                            display: inline-block;
+                        }
+                        .shapeslide{
+                            position: absolute;
+                            width: 24px;
+                            height: 24px;
+                            right: 0px;
+                            bottom: 0px;
+                            transition: 0s;
+                            padding: 0;
+                            border-radius: 0;
+                            background-image: linear-gradient(to top left,var(--scheduler-week-cell-background-color,#fff) 50%,var(--peel-border-color,rgba(0,0,0,.2)) 0);
+                            transform: translate(10px, 10px);
+                            background-color: $primary;
+                            visibility: hidden;
+                            i{
+                                position: relative;
+                                bottom: -6px;
+                                right: -6px;
+                                color: $primary;
+                            }
+                        }
+                    }
+                    &:hover{
+                        .detailtime{
+                            .shapeslide{
+                                transition: .15s;
+                                transform: translate(0px, 0px);
+                                visibility: visible;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .detailinfo{
+        margin-top: 4px;
+        i, span{
+            font-size: 12px;
+            color: $span;
+        }
+        .number_profile{
+            padding-left: 5px;
+        }
+    }
+    .day_details{
+        width: 100%;
+    }
+    .day_week{
+        &:hover{
+            .name_week{
+                .date_dot, .dropend{
+                    opacity: 1;
+                }
+            }
+        }
+        .name_week{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            position: relative;
+            p{
+                margin-bottom: 0;
+                flex: 1;
+                line-height: 1;
+                text-align: center;
+            }
+            .date_dot, .dropend{
+                position: absolute;
+                right: 0px;
+                top: 0;
+                opacity: 0;
+                transition: $transition;
+            }
+            .dropdown-toggle::after{
+                display: none;
+            }
+        }
+        .detailinfo{
+            text-align: center;
+            margin-top: 6px;
+        }
+    }
+
+}
+
+.sidebar.offcanvas{
+    width: 520px;
+    .offcanvas-header{
+        h5{
+            font-size: 24px;
+            font-weight: 600;
+        }
+    }
+    .offcanvas-body{
+        padding: 0;
+    }
+    .nav-tabs{
+        border-top: 1px solid $border;
+        border-bottom: 1px solid $border;
+        position: sticky;
+        z-index: 5;
+        top: 0;
+        background: $white;
+        .nav-item{
+            position: relative;
+        }
+        .nav-link {
+            font-size: 16px;
+            color: $span;
+            padding: 10px 12px;
+            border-radius: 10px;
+            margin: 10px;
+            font-weight: 500;
+            i{
+                margin-right: 8px;
+                color: $span;
+            }
+            &::before{
+                position: absolute;
+                content: "";
+                width: calc(100% + 20px);
+                left: 0;
+                bottom: 0;
+                background: $primary;
+                height: 4px;
+                opacity: 0;
+            }
+            &.show, &.active, &.show::before, &.active::before{
+                color: $primary;
+                background: $primary;
+                color: $white;
+                opacity: 1;
+            }
+            &.active i{
+                color: $white;
+            }
+        }
+    }
+    .tab-content{
+        padding: 0;
+        .shift_ditail{
+            padding: 20px 30px 10px;
+            border-bottom: 1px solid $border;
+            .date_shift{
+                display: flex;
+                align-items: center;
+                gap: 25px;
+                margin-bottom: 15px;
+                .date_item{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                  .btn{
+                    border: 1px solid $border;
+                    padding: 8px 20px;
+                    border-radius: 50px;
+                    color: $span;
+                    i{
+                        margin-left: 10px;
+                        color: $span;
+                    }
+                  }
+                  .form-switch{
+                    margin-bottom: 0;
+                    .form-check-input{
+                        height: 24px;
+                        width: 40px;
+                    }
+                  }
+                  .start{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    color: $span;
+                  }
+                  .startend{
+                    position: relative;
+                    .ampm{
+                        position: absolute;
+                        right: 8px;
+                        top: 10px;
+                        display: flex;
+                        gap: 0;
+                        p{
+                            font-size: 12px;
+                            border: 1px solid $border;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            display: inline-block;
+                            margin: 0;
+                            padding: 0px 2px;
+                            &:first-child{
+                                border-top-right-radius: 0px;
+                                border-bottom-right-radius: 0px;
+                            }
+                            &.active{
+                                border-color: $primary;
+                                color: $primary;
+                                border-radius: 5px
+                            }
+                        }
+                    }
+                  }
+                  span{
+                    color: $span;
+                  }
+                  input.form-control{
+                    width:107px;
+                    color: $span;
+                    padding-left: 8px;
+                    padding: 8px;
+                  }
+                  p{
+                    margin-bottom: 0;
+                    font-weight: 600;
+                  }
+                }
+            }   
+            .btn_shift{
+                display: flex;
+                flex-wrap: wrap;
+                padding: 25px 0;
+                gap: 15px;
+                border-bottom: 1px solid $border;
+                a{
+                    i{
+                        margin-right: 10px;
+                    }
+                    margin-right: 10px;
+                }
+                span{
+                    color: $span;
+                }
+            }
+            .form_shift{
+                padding: 20px 0;
+                .form_group{
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    .titleinput{
+                        min-width: 100px;
+                        p{
+                            margin-bottom: 0;
+                        }
+                    }
+                    .forminput{
+                        flex: 1;
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+                        .form-control{
+                            width: 100%;
+                            color: $span;
+                            &::placeholder{
+                                color: $span;
+                            }
+                        }
+                        .dropdown{
+                            &.flex_btn{
+                                flex: 1;
+                                .btn{
+                                    width: 100%;
+                                }
+                            }
+                            .btn:hover{
+                                transform: none;
+                            }
+                            .btn{
+                                padding: 9px 15px;
+                                height: 38px;
+                                border: 1px solid $border;
+                                color: $span;
+                                justify-content: flex-start;
+                                .textbtn{
+                                    flex: 1;
+                                    text-align: left;
+                                }
+                            }
+                            .job_area{
+                                .job_input{
+                                    margin: 10px;
+                                    position: relative;
+                                }
+                                .fa-search{
+                                    padding: 0;
+                                    position: absolute;
+                                    right: 12px;
+                                    top: 10px;
+                                }
+                                ul.job_select{
+                                    max-height: 170px;
+                                    overflow-x: auto;
+                                    padding: 0;
+                                    border-bottom: 1px solid $border;
+                                    &::-webkit-scrollbar {
+                                        width: 8px;  /* Width of scrollbar */
+                                        }
+    
+                                        &::-webkit-scrollbar-track {
+                                        background: #f1f1f1;  /* Track background */
+                                        }
+    
+                                        &::-webkit-scrollbar-thumb {
+                                        background: $border;   /* Thumb color */
+                                        border-radius: 4px; /* Rounded corners */
+                                        }
+    
+                                        &::-webkit-scrollbar-thumb:hover {
+                                        background: $span;  /* Thumb color on hover */
+                                        }
+                                }
+                                .selection{
+                                    .dropdown-item{
+                                        padding-left: 8px;
+                                        padding-right: 8px;
+                                        .circle{
+                                            width: 14px;
+                                            height: 14px;
+                                            border-radius: 30px;
+                                            background: #646e78;
+                                            &.circleone{
+                                                background: #9f5353;
+                                            }
+                                            &.circletwo{
+                                                background: #53889f;
+                                            }
+                                            &.circlethree{
+                                                background: #759f53;
+                                            }
+                                        }
+                                    }
+                                }
+                                .edit_job{
+                                    .btn{
+                                        padding: 10px 20px 0;
+                                        border: none;
+                                        color: $primary;
+                                        i{
+                                            margin-right:10px;
+                                        }
+                                    }
+                                }
+                            }
+                            &.colormenu{
+                                .selected_color{
+                                    width: 16px;
+                                    height: 16px;
+                                    border-radius: 50px;
+                                    background: #759f53;
+                                }
+                                .colordropdown{
+                                    min-width: 86px;
+                                    li{
+                                        display: inline-block;
+                                        margin: 0;
+                                    }
+                                    .dropdown-item{
+                                        padding: 5px;
+                                        margin: 0;
+                                    }
+                                    .maincolor{
+                                        width: 16px;
+                                        height: 16px;
+                                        background: #759f53;
+                                        border-radius: 50px;
+                                        &.colortwo{
+                                            background: #8c9094;
+                                        }
+                                        &.colorthree{
+                                            background: #696cff;
+                                        }
+                                        &.colorfour{
+                                            background: #9f5353;
+                                        }
+                                        &.colorfive{
+                                            background: #000000;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.userinfo{
+                        align-items: flex-start;
+                        .titleinput{
+                            padding-top: 10px;
+                        }
+                     .titleinput{
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+                     }   
+                     .forminput{
+                        flex-direction: column;
+                        gap: 0;
+                        .dropdown, .allusershift{
+                            width: 100%;
+                        }
+                        .allusershift{
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 8px 10px;
+                            background: #f1f1f1;
+                            border-bottom-right-radius: 10px;
+                            border-bottom-left-radius: 10px;
+                            margin-bottom: 10px;
+                            p{
+                                margin: 0;
+                                i{
+                                    margin-right: 10px;
+                                }
+                            }
+                            span.edituser{
+                                color: $primary;
+                            }
+                            &.shifttwo{
+                                border-radius: 10px;
+                                align-items: center;
+                                margin-bottom: 5px;
+                                .form-control{
+                                    width: 50px;
+                                }
+                            }
+                            &.checkshift{
+                                background: transparent;
+                                padding-right: 0;
+                                padding-left: 0;
+                                margin-bottom: 0;
+                                padding-bottom: 0;
+                                .form-check{
+                                    display: flex;
+                                    gap: 10px;
+                                    align-items: center;
+                                    .infoask{
+                                        color: $primary;
+                                    }
+                                    .form-check-label{
+                                        font-size: 15px;
+                                    }
+                                }
+                            }
+                        }
+                        .dropdown-toggle{
+                            padding: 8px;
+                            &::after{   
+                                display: none; 
+                            }
+                        }
+                        .user_btn{
+                            padding: 2px 8px;
+                            border: 1px solid $border;
+                            display: inline-block;
+                            border-radius: 50px;
+                            margin-right: 5px;
+                            font-weight: 400;
+                            font-size: 14px;
+                        }
+                        .delete_btn{
+                            right: 14px;
+                            top: 12px;
+                            position: absolute;
+                        }
+                        .job_area{
+                            .usertitle{
+                                padding-left: 10px;
+                            }
+                            .user_info{
+                                padding: 0px 10px;
+                                .dropdown-item{
+                                    margin: 5px 0;
+                                    display: flex;
+                                    padding: 5px;
+                                    gap: 10px;
+                                    align-items: center;
+                                    .user_img{
+                                        background: #53889f;
+                                        border-radius: 50px;
+                                        width: 30px;
+                                        height: 30px;
+                                        text-align: center;
+                                        line-height: 30px;
+                                        color: #fff;
+                                    }
+                                    h5{
+                                        font-size: 16px;
+                                        font-weight: 400;
+                                        margin: 0;
+                                        flex: 1;
+                                    }
+                                    button.btn{
+                                        background: #f1f1f1;
+                                        width: max-content;
+                                        border-radius: 50px;
+                                        padding-top: 6px;
+                                        padding-bottom: 6px;
+                                    }
+                                }
+                                .usertitle{
+                                    color: $span;
+                                }
+                            }
+                        }
+                     }
+                    }
+                    .forminput{
+                        position: relative;
+                        .locationarea{
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                        }
+                        .textlock{
+                            padding: 10px 10px;
+                            border: 1px solid $border;
+                            cursor: pointer;
+                            border-radius: 8px;
+                        }
+                    }
+                    &.note{
+                        align-items: flex-start;
+                        .titleinput{
+                            padding-top: 6px;
+                        }
+                    }
+                    &.flexend{
+                        justify-content: flex-end;
+                    }
+                    .add_another_item{
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        gap: 5px;
+                        cursor: pointer;
+                        i, p{
+                            color: $primary;
+                        }
+                        p{
+                            margin-bottom: 0;
+                        }
+                    }
+                    .forminput.jobsslide{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 12px;
+                    }
+                    .item_box{
+                        width: 100%;
+                        .ac_collapse{
+                            .prcollapse{
+                                border: 1px solid $primary;
+                                border-radius: 8px;
+                                overflow: hidden;
+                                margin-bottom: 10px;
+                                .btnbook{
+                                    width: 100%;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    border-radius: 0px;
+                                    background: $primary;
+                                    padding: 12px 14px;
+                                    border-top-right-radius: 8px;
+                                    border-top-left-radius: 8px;
+                                    &.collapsed{
+                                        .fa-angle-up{
+                                            transform: rotate(180deg);
+                                            transition: $transition;
+                                        }
+                                    }
+                                    &:hover{
+                                        transform: translateY(0px);
+                                    }
+                                    .booking_item, .dl_book{
+                                        i, p{
+                                            margin: 0;
+                                            color: $white;
+                                            transition: $transition;
+                                        }
+                                    }
+                                    .booking_item{
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 10px;
+                                    }
+                                }
+                            }
+                        }
+                        .collapse_box{
+                            display: flex;
+                            align-items: center;
+                            gap: 14px;
+                            border: 1px solid $border;
+                            box-shadow: $shadow;
+                            width: 100%;
+                            padding: 8px 14px;
+                            border-radius: 10px;
+                            position: relative;
+                            transition: $transition;
+                            &:focus, &:hover{
+                                border-color: $primary;
+                                transition: $transition;
+                            }
+                            .img_inside{
+                                height: 40px;
+                                width: 40px;
+                                border-radius: 50px;
+                                overflow: hidden;
+                                img{
+                                    width: 100%;
+                                    object-fit: cover;
+                                };
+                            }
+                            .job_content{
+                                i{
+                                    position: absolute;
+                                    color: #f63131;
+                                    right: -6px;
+                                    top: -6px;
+                                    font-size: 18px;
+                                }
+                                h5{
+                                    margin-bottom: 0px;
+                                    font-size: 16px;
+                                }
+                                span{
+                                    color: $span;
+                                }
+                            }
+                        }
+                    }
+
+                    &.relativeflex{
+                        position: relative;
+                        display: block;
+                        margin-left: 100px;
+                        .item_title{
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 6px;
+                            border-bottom: 1px solid $primary;
+                            margin-bottom: 5px;
+                        }
+                    }
+                    .item_collapse{
+                        .accordion-flush{
+                            .accordion-item{
+                                border-radius: 10px;
+                                margin: 0;
+                                border: 2px solid $primary;
+                                background: $white;
+                                border-radius: 10px;
+                                overflow: hidden;
+                                margin-bottom: 10px;
+                                .accordion-collapse{
+                                    .job_item{
+                                        padding: 12px;
+                                    }
+                                    .item_dr{
+                                        margin-bottom: 15px;
+                                        p{
+                                            margin-bottom: 5px;
+                                        }
+                                        .dropdown{
+                                            .btn{
+                                                border: 1px solid $border;
+                                                border-radius: 10px;
+                                                justify-content: space-between;
+                                                width: 100%;
+                                            }
+                                        }
+                                    }
+                                    .flex_item{
+                                        display: flex;
+                                        justify-content: space-between;
+                                        gap: 14px;
+                                        p{
+                                            margin-bottom: 5px;
+                                        }
+                                    }
+                                }
+
+                                
+                                .booking_area{
+                                    padding: 14px;
+                                    .item_book{
+                                        margin-bottom: 15px;
+                                        p{
+                                            margin-bottom: 5px;
+                                        }
+                                        .dropdown{
+                                            width: 100%;
+                                            .btn{
+                                                width: 100%;
+                                                padding-left: 8px;
+                                                padding-right: 8px;
+                                                display: flex;
+                                                justify-content: space-between;
+                                                align-items: center;
+                                                border: 1px solid $border;
+                                            }
+                                            .dropdown-toggle::after{
+                                                display: none;
+                                            }
+                                        }
+                                        .item_flex{
+                                            display: flex;
+                                            gap: 15px;
+                                            justify-content: space-between;
+                                            .item_status{
+                                                flex: 1;
+                                                .dropdown{
+                                                    .btn{
+                                                        width: 100%;
+                                                    }
+                                                }
+                                                .available{
+                                                    border: 1px solid $primary;
+                                                    justify-content: space-between;
+                                                    width: 100%;
+                                                    padding-right: 10px;
+                                                    padding-left: 10px;
+                                                }
+                                                .startend{
+                                                    display: flex;
+                                                    justify-content: space-between;
+                                                    align-items: center;
+                                                    position: relative;
+                                                    .ampm{
+                                                        display: flex;
+                                                        gap: 2px;
+                                                        position: absolute;
+                                                        right: 10px;
+                                                        top: 8px;
+                                                        p{
+                                                            margin: 0;
+                                                            padding: 0px 2px;
+                                                            border: 1px solid $border;
+                                                            border-radius: 3px;
+                                                            cursor: pointer;
+                                                            &.active{
+                                                                border-color: $primary;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .accordion-header{
+                                .accordion-button{
+                                    background: $primary;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    padding: 12px 14px;
+                                    border-top-right-radius: 6px;
+                                    border-top-left-radius: 6px;
+                                    &.collapsed{
+                                        .jobitem{
+                                            i{
+                                                transform: rotate(180deg);
+                                                transition: $transition;
+                                            }
+                                        }
+                                    }
+                                    .jobitem{
+                                        display: flex;
+                                        gap: 8px;
+                                        align-items: center;
+                                    }
+                                    p,i{
+                                        color: $white;
+                                        transition: $transition;
+                                        margin: 0;
+                                    }
+                                    &::after{
+                                        display: none;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+                .bottom_shift{
+                    border-top: 1px solid $border;
+                    border-bottom: 1px solid $border;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 0;
+                    .shift_task{
+                        display: flex;
+                        gap: 15px;
+                        align-items: center;
+                        .complete{
+                            display: flex;
+                            align-items: center;
+                            .circletaks{
+                                cursor: pointer;
+                                width: 16px;
+                                height: 16px;
+                                margin-right: 10px;
+                                border: 1px solid $border;
+                                border-radius: 50px;
+
+                            }
+                            p{
+                                display: inline-block;
+                                span{
+                                    color: $primary;
+                                }
+                            }
+                        }
+                    }
+                    p{
+                        margin-bottom: 0;
+                    }
+                    button.btn{
+                        border: 1px solid $border;
+                        color: $primary;
+                        border-radius: 50px;
+                    }
+                }
+            }
+        }
+        .save_shift{
+            padding: 20px 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: space-between;
+            .publish_area{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                .btn{
+                    padding: 0;
+                    border: 1px solid $border;
+                    border-radius: 50px;
+                    &.bgcolor{
+                        background: $primary;
+                        color: $white;
+                    }
+                    span{
+                        padding: 10px 13px;
+                        font-size: 15px;
+                        border-right: 1px solid $white;
+                    }
+                    i{
+                        padding: 10px 13px;
+                        font-size: 15px;
+                    }
+                }
+            }
+            .save_area{
+                .btn{
+                    padding: 10px 12px;
+                    color: $primary;
+                    border-radius: 50px;
+                    border: 1px solid $border;
+                    i{
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+        .tasks_area{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100%;
+            max-width: 300px;
+            margin: 0px auto;
+            p, h3, h6, .btn{
+                text-align: center;
+                margin: 0px auto;
+            }
+            .content_tasks{
+                text-align: center;
+            }
+            button.btn{
+                background: $primary;
+                color: $white;
+                border-radius: 50px;
+                padding: 12px 16px;
+                margin-top: 14px;
+                i{
+                    margin-right: 10px;
+                }
+            }
+        }
+        .template_area{
+            padding: 20px;
+           .searcht{
+                width: 100%;
+                position: relative;
+                i{
+                    position: absolute;
+                    top: 10px;
+                    right: 12px;
+                }
+           } 
+           .temp_inside{
+                margin-top: 20px;
+                .box_temp{
+                    width: 240px;
+                    margin-bottom: 15px;
+                    position: relative;
+                    padding: 14px 20px;
+                    border-radius: 10px;
+                    border: 2px solid #759f53;
+                    border-left: 8px solid #759f53;
+                    &.temp2{
+                        border-color: #9f5353;
+                    }
+                    .box_conent{
+                        p{
+                            font-size: 15px;
+                            margin-bottom: 5px;
+                            font-weight: 600;
+                        }
+                        span{
+                            font-size: 14px;
+                        }
+                    }
+                    .dropdown{
+                        z-index: 2;
+                        position: absolute;
+                        top: 50%;
+                        right: 0px;
+                        transform: translate(0, -50%);
+                        .btn{
+                            &.dropdown-toggle{
+                                &::after{
+                                    display: none;
+                                }
+                            }
+                        }
+                        .dropdown-menu{
+                            background: $white;
+                        }
+                    }
+                }
+           }
+        }
+    }
+}
+
+.left_bar{
+    display: none;
+}
+@media screen and (max-width: 1024px){
+    .left_bar{
+        margin-top: 20px;
+        display: block;
+        i{
+            font-size: 20px;
+            display: block;
+        }
+        .fa-times-circle{
+            display: none;
+        }
+        .bar{
+            display: none;
+        }
+        .cross{
+            display: block;
+        }
+    }
+    .main_box{
+        overflow-x: auto;
+    }
+    .main_box .box_item.box_width{
+        max-width: 210px;
+        width: 100%;
+        left: -210px;
+        position: absolute;
+        background: $white;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 5;
+        border-top-left-radius: 10px;
+        box-shadow:0 0.25rem 0.75rem 0 rgba(34, 48, 62, 0.14);
+        transition: $transition;
+        &.slidin{
+            left: 35px;
+            opacity: 1;
+            visibility: visible;
+            transition: $transition;
+        }
+    }
+    .date_items.blacky{
+        opacity: 0.4;
+        pointer-events: none;
+    }
+    .main_box .date_items{
+        width: unset;
+    }
+    .calander_section .calander_top{
+        gap: 10px;
+    }
+    .calander_section .calander_top .filter_area button, .calander_section .calander_top .button_area button{
+        padding: 7px 12px;
+        gap: 5px;
+    }
+    .calander_section .calander_top .filter_area{
+        flex-direction: column;
+    }
+    .calander_section .calander_top .button_area button{
+        height: max-content;
+    }
+    button.btn.dr_five, .dropdown.dr_two{
+        display: none;
+    }
+    .calander_section .calander_top .filter_area button{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .calander_section .calander_top .button_area{
+        flex-direction: column;
+    }
+    .calander_section .calander_top .button_area button{
+        width: 100%;
+    }
+    .sidebar.offcanvas .tab-content .shift_ditail .form_shift .form_group.userinfo .forminput .job_area .user_info .dropdown-item h5{
+        flex: unset;
+        font-size: 14px;
+    }
+    .sidebar.offcanvas .tab-content .shift_ditail .form_shift .form_group.userinfo .forminput .job_area .user_info .dropdown-item{
+        padding: 10px;
+        gap: 5px;
+        align-items: flex-start;
+        flex-direction: column;
+        background: #f1f1f1;
+        margin-bottom: 10px;
+    }
+    .sidebar.offcanvas .tab-content .save_shift{
+        flex-direction: column;
+    }
+    .sidebar.offcanvas .tab-content .shift_ditail .date_shift .date_item input.form-control{
+        width: 70px;
+        color: #8c9094;
+        padding: 8px;
+        font-size: 14px;
+    }
+    .sidebar.offcanvas .tab-content .shift_ditail{
+        padding: 20px 10px 10px;
+    }
+    .sidebar.offcanvas .nav-tabs .nav-link{
+        font-size: 16px;
+        padding: 16px 13px;
+    }
+}
