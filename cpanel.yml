@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/rase7944/calendar.raselworks.com
+    - /bin/cp -R . $DEPLOYPATH
